@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* Сброс и базовые стили */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Запрет горизонтальной прокрутки */
+  box-sizing: border-box;
+  background-color: #DDD6FF;
+  font-family: 'Inter', sans-serif;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Главный экран — класс first */
+/* Первый экран растягивается */
+.first {
+  width: 100vw;
+  height: calc(100vh - 100px); /* высота экрана минус отступ */
+  margin-top: 210px;           /* опустить вниз на 100px */
+  position: relative;
+  background-color: #DDD6FF;
+  background-image: url("../../assets/2.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+
+/* Крупная буква P */
+.logo-big {
+  position: absolute;
+  left: 750px;
+  top: 270px;
+  font-family: 'Nerko One', cursive;
+  font-weight: 400;
+  font-size: 200px;
+  color: #FF005E;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Надпись Puzzle */
+.puzzle-text {
+  position: absolute;
+  left: 38px;
+  top: 142px;
+  font-family: 'Nerko One', cursive;
+  font-weight: 400;
+  font-size: 128px;
+  color: #FF005E;
+  user-select: none;
+}
+
+/* Заголовок "Создай свой интернет-магазин" */
+.title-main {
+  position: absolute;
+  left: 38px;
+  top: 302px;
+  width: 456px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  color: #2A1C71;
+  user-select: none;
+  line-height: 1.2;
+  text-align: left;
+}
+
+/* Кнопка Создать */
+.btn-create {
+  position: absolute;
+  left: 38px;
+  top: 435px;
+  width: 354px;
+  height: 94px;
+  background-color: #FF005E;
+  border: none;
+  border-radius: 45px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 36px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+}
+
+/* Фиксированная шапка */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Логотип в шапке */
+.logo-small {
+  font-family: 'Nerko One', cursive;
+  font-weight: 400;
+  font-size: 40px;
+  color: #FF005E;
+  user-select: none;
+}
+
+/* Контейнер кнопок в шапке */
+.header-buttons {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Кнопка Войти */
+.btn-login {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Кнопка Зарегистрироваться */
+.btn-register {
+  width: 191px;
+  height: 50px;
+  background-color: #FF005E;
+  border: none;
+  border-radius: 45px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #FFFFFF;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.frame {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0; /* Можно убрать, чтобы не было отступов */
+}
+
+/* Внутренний контейнер с ограниченной шириной и вертикальным стэком */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.footer {
+  position: relative;
+  width: 100vw;        /* занять всю ширину окна */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #2A1C71;
+  box-sizing: border-box;
+}
+
+
+/* Надпись Puzzle */
+.footer-logo {
+  position: absolute;
+  top: 70px;
+  left: 40px;
+  font-family: 'Nerko One', cursive;
+  font-weight: 400;
+  font-size: 128px; /* как в .puzzle-text */
+  color: #FF005E;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Текст копирайта */
+.footer-text {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #2A1C71;
+  user-select: none;
+}
+.footer-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-icons img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.footer-icons img:hover {
+  transform: scale(1.1);
+}
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Inter', sans-serif;
+  color: #2A1C71;
+}
+
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.login-form input {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-login-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #FF005E;
+  border: none;
+  border-radius: 45px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login-submit:hover {
+  background-color: #e60052;
+}
+.register-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Inter', sans-serif;
+  color: #2A1C71;
+}
+
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.register-form input {
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-register-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #FF005E;
+  border: none;
+  border-radius: 45px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-register-submit:hover {
+  background-color: #e60052;
+}
+.btn-login-switch,
+.btn-register-switch {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-login-switch:hover,
+.btn-register-switch:hover {
+  background-color: #FF005E;
+  color: white;
+  border-color: #FF005E;
+  box-shadow: 0 4px 15px rgba(255, 0, 94, 0.6);
+  transform: scale(1.05);
+}
+.btn-login,
+.btn-create {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-login:hover,
+.btn-create:hover {
+  background-color: #FF005E;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 94, 0.6);
+  transform: scale(1.05);
+}
+.btn-login,
+.btn-create,
+.btn-register {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-login:hover,
+.btn-create:hover,
+.btn-create-site:hover,
+.btn-settings:hover,
+.btn-save:hover,
+.btn-register:hover
+ {
+  background-color: #FF005E;
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 0, 94, 0.6);
+  transform: scale(1.05);
+}
+/* Общий стиль для интерактивных кнопок */
+.btn-interactive {
+  background-color: #FF005E;
+  color: white;
+  border: none;
+  border-radius: 45px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.btn-interactive:hover {
+  background-color: #e60052;
+  box-shadow: 0 4px 15px rgba(230, 0, 82, 0.6);
+  transform: scale(1.05);
+}
+
+/* Для кнопок, которые нужно растянуть по ширине */
+.btn-fullwidth {
+  width: 100%;
+}
+.btn-login-submit:hover {
+  background-color: #e60052;
+  box-shadow: 0 4px 15px rgba(230, 0, 82, 0.6);
+  transform: scale(1.05);
+}
+.btn-register-submit:hover {
+  background-color: #e60052;
+  box-shadow: 0 4px 15px rgba(230, 0, 82, 0.6);
+  transform: scale(1.05);
+}
+.admin-login-text {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #2A1C71;
+  text-align: center;
+}
+
+.admin-login-text button.btn-login-switch {
+  background-color: transparent;
+  color: #FF005E;
+  border: none;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: underline;
+  user-select: none;
+}
+
+.admin-login-text button.btn-login-switch:hover {
+  color: #e60052;
+  transform: scale(1.05);
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(230, 0, 82, 0.6);
+}
+.admin-login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #ffffff; /* светло-розовый фон */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Inter', sans-serif;
+  color: #2A1C71;
+}
+
+.admin-login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.admin-page {
+  background-color: #ffe4e6;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+.admin-login-page {
+  background-color: #fcd9e6; /* светло-розовый фон */
+  min-height: 100vh;          /* минимум 100% высоты экрана */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  width: 100vw;              /* Занять всю ширину окна */
+  box-sizing: border-box;    /* Чтобы паддинги не вылезали за ширину */
+  margin: 0;                 /* Убедиться, что нет внешних отступов */
+}
+
+
+.dashboard-container {
+  width: 100vw;
+  min-height: calc(100vh - 100px);
+  margin-top: 210px;
+  position: relative;
+  background-color: #DDD6FF;
+  background-image: url("../../assets/2.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: #2A1C71;
+  display: flex;
+  flex-direction: column;
+}
+/* style.css */
+.dashboard-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.logo-small {
+  font-family: 'Nerko One', cursive;
+  font-size: 32px;
+  color: #FF005E;
+  user-select: none;
+}
+.btn-create-site,
+.btn-settings,
+.btn-save {
+  position: absolute;
+  top: 100px;
+  height: 50px;
+  min-width: 140px;
+  padding: 0 20px;
+  background-color: #FF005E;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;  /* одинаковый для всех */
+  font-size: 18px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.btn-create-site {
+  left: 100px;
+  min-width: 140px;  /* убрать 180px и сделать как у остальных */
+}
+
+.btn-settings {
+  left: 1000px;
+}
+
+.btn-save {
+  left: 1300px;
+}body {
+  background-color: #ddd6ff;
+}
+
+/* Метка "Мои магазины" */
+.stores-label {
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #7f7f7f;
+  user-select: none;
+}
+
+/* Добавляем margin-top, чтобы отступить от метки */
+.stores-container {
+  margin-top: 60px; /* например 60px */
+  padding-left: 100px;
+  max-width: 1300px;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 600px; /* для прокрутки, если надо */
+  overflow-y: auto;
+}
+
+
+/* Обёртка магазина */
+.store-list-wrapper {
+  width: 100%;
+  max-width: 1100px; /* ширина блока магазина */
+  background-color: rgba(255, 255, 255, 0.5); /* полупрозрачный белый */
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+
+  display: flex;
+  justify-content: space-between; /* название слева, кнопки справа */
+  align-items: center;
+}
+
+/* При публикации добавим лёгкий оттенок */
+.store-item.published {
+  background-color: #e5ffe5;
+  border-radius: 12px;
+}
+
+/* Наведение */
+.store-list-wrapper:hover {
+  box-shadow: 0 6px 20px rgba(255, 0, 94, 0.1);
+}
+
+/* Название магазина */
+.store-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  color: #333;
+  min-width: 200px;
+  cursor: pointer;
+  user-select: text;
+  flex-grow: 1;          /* растягиваем название */
+  flex-shrink: 1;
+  margin-right: 20px;    /* отступ справа перед кнопками */
+}
+
+/* Поле ввода имени */
+.store-name-input {
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  min-width: 200px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Кнопки магазина (группа справа) */
+.store-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Кнопка */
+.btn-store {
+  height: 40px;
+  padding: 0 24px;
+  background-color: #ff005e;
+  border: none;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.btn-store:hover {
+  background-color: #cc004a;
+}
+
+/* Сообщение о лимите */
+.store-limit-message {
+  color: #888;
+  font-style: italic;
+  padding-top: 10px;
+}
