@@ -8,114 +8,178 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-  e.preventDefault();
-  if (password !== passwordConfirm) {
-    alert("Пароли не совпадают!");
-    return;
-  }
-  alert(`Регистрация с Email: ${email} и Пароль: ${password}`);
-  navigate("/dashboard");  // переход на личный кабинет после регистрации
-};
-
+    e.preventDefault();
+    if (password !== passwordConfirm) {
+      alert("Пароли не совпадают!");
+      return;
+    }
+    alert(`Регистрация с Email: ${email} и Пароль: ${password}`);
+    navigate("/dashboard");
+  };
 
   return (
-    <div className="register-container">
-      <h2>Регистрация</h2>
-      <form onSubmit={handleSubmit} className="register-form">
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder="Введите email"
-          />
-        </label>
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-        <label>
-          Пароль:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Введите пароль"
-          />
-        </label>
+        .register-container {
+          max-width: 400px;
+          margin: 80px auto;
+          padding: 30px;
+          background-color: white;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          font-family: 'Inter', sans-serif;
+          color: #2A1C71;
+        }
 
-        <label>
-          Подтвердите пароль:
-          <input
-            type="password"
-            value={passwordConfirm}
-            onChange={(e) => setPasswordConfirm(e.target.value)}
-            required
-            placeholder="Повторите пароль"
-          />
-        </label>
+        .register-container h2 {
+          text-align: center;
+          margin-bottom: 20px;
+        }
 
-        <button type="submit" className="btn-register-submit">
-          Зарегистрироваться
-        </button>
-      </form>
+        .register-form label {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 15px;
+          font-weight: 600;
+        }
 
-      <button
-        onClick={() => navigate("/login")}
-        className="btn-login-switch"
-        style={{
-          marginTop: "20px",
-          width: "100%",
-          padding: "12px",
-          borderRadius: "45px",
-          border: "1px solid #FF005E",
-          backgroundColor: "white",
-          color: "#FF005E",
-          fontSize: "16px",
-          cursor: "pointer"
-        }}
-      >
-        Войти
-      </button>
+        .register-form input {
+          margin-top: 5px;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 6px;
+          border: 1px solid #ccc;
+        }
 
-      <div
-        className="admin-login-text"
-        style={{ marginTop: "20px", textAlign: "center", fontSize: "14px", color: "#2A1C71" }}
-      >
-        Вы являетесь администратором?{" "}
+        .btn-register-submit {
+          width: 100%;
+          padding: 12px;
+          background-color: #FF005E;
+          border: none;
+          border-radius: 45px;
+          color: white;
+          font-size: 18px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-register-submit:hover {
+          background-color: #e60052;
+          box-shadow: 0 4px 15px rgba(230, 0, 82, 0.6);
+          transform: scale(1.05);
+        }
+
+        .btn-login-switch {
+          margin-top: 20px;
+          width: 100%;
+          padding: 12px;
+          border-radius: 45px;
+          border: 1px solid #FF005E;
+          background-color: white;
+          color: #FF005E;
+          font-size: 16px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-login-switch:hover {
+          background-color: #FF005E;
+          color: white;
+          border-color: #FF005E;
+          box-shadow: 0 4px 15px rgba(255, 0, 94, 0.6);
+          transform: scale(1.05);
+        }
+
+        .admin-login-text {
+          margin-top: 20px;
+          text-align: center;
+          font-size: 14px;
+          color: #2A1C71;
+        }
+
+        .admin-login-text button {
+          background-color: transparent;
+          color: #FF005E;
+          border: none;
+          padding: 0;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          text-decoration: underline;
+          user-select: none;
+          transition: color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .admin-login-text button:hover {
+          color: #e60052;
+          transform: scale(1.05);
+          text-decoration: none;
+          box-shadow: 0 4px 15px rgba(230, 0, 82, 0.6);
+        }
+      `}</style>
+
+      <div className="register-container">
+        <h2>Регистрация</h2>
+        <form onSubmit={handleSubmit} className="register-form">
+          <label>
+            Email:
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="Введите email"
+            />
+          </label>
+
+          <label>
+            Пароль:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Введите пароль"
+            />
+          </label>
+
+          <label>
+            Подтвердите пароль:
+            <input
+              type="password"
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+              required
+              placeholder="Повторите пароль"
+            />
+          </label>
+
+          <button type="submit" className="btn-register-submit">
+            Зарегистрироваться
+          </button>
+        </form>
+
         <button
-          onClick={() => navigate("/admin-login")}
+          onClick={() => navigate("/login")}
           className="btn-login-switch"
-          type="button"
-          style={{
-            backgroundColor: "transparent",
-            color: "#FF005E",
-            border: "none",
-            padding: 0,
-            fontSize: "14px",
-            fontWeight: "600",
-            cursor: "pointer",
-            textDecoration: "underline",
-            userSelect: "none",
-            transition: "color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease"
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "#e60052";
-            e.currentTarget.style.transform = "scale(1.05)";
-            e.currentTarget.style.textDecoration = "none";
-            e.currentTarget.style.boxShadow = "0 4px 15px rgba(230, 0, 82, 0.6)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "#FF005E";
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.textDecoration = "underline";
-            e.currentTarget.style.boxShadow = "none";
-          }}
         >
-          Войти тут
+          Войти
         </button>
+
+        <div className="admin-login-text">
+          Вы являетесь администратором?{" "}
+          <button
+            onClick={() => navigate("/admin-login")}
+            type="button"
+          >
+            Войти тут
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

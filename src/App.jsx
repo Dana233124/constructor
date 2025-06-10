@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import AdminLogin from "./components/AdminLogin";
 import Dashboard from "./components/Dashboard";  // импорт компонента Dashboard
+import Data from "./components/Data";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/dashboard" element={<Dashboard />} /> {/* маршрут Dashboard */}
+        <Route path="/data" element={<Data />} />
       </Routes>
     </BrowserRouter>
   );
